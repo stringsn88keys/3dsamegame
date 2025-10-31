@@ -1,0 +1,23 @@
+<svg width="128" height="128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" fill="#1a1a2e"/>
+  <g transform="translate(32, 32)">
+    <!-- Red cube -->
+    <rect x="0" y="0" width="20" height="20" fill="#ff3333" stroke="#000" stroke-width="2"/>
+    <!-- Blue cube -->
+    <rect x="22" y="0" width="20" height="20" fill="#3366ff" stroke="#000" stroke-width="2"/>
+    <!-- Green cube -->
+    <rect x="44" y="0" width="20" height="20" fill="#33ff33" stroke="#000" stroke-width="2"/>
+    <!-- Yellow cube -->
+    <rect x="0" y="22" width="20" height="20" fill="#ffee33" stroke="#000" stroke-width="2"/>
+    <!-- Purple cube -->
+    <rect x="22" y="22" width="20" height="20" fill="#ee33ff" stroke="#000" stroke-width="2"/>
+    <!-- Blue cube -->
+    <rect x="44" y="22" width="20" height="20" fill="#3366ff" stroke="#000" stroke-width="2"/>
+    <!-- Green cube -->
+    <rect x="0" y="44" width="20" height="20" fill="#33ff33" stroke="#000" stroke-width="2"/>
+    <!-- Red cube -->
+    <rect x="22" y="44" width="20" height="20" fill="#ff3333" stroke="#000" stroke-width="2"/>
+    <!-- Yellow cube -->
+    <rect x="44" y="44" width="20" height="20" fill="#ffee33" stroke="#000" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7wvxqwb1qi4g"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/Grid3D.gd" id="2_grid"]
+[ext_resource type="Script" path="res://scripts/CameraController.gd" id="3_camera"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_main")
+
+[node name="Grid3D" type="Node3D" parent="."]
+script = ExtResource("2_grid")
+
+[node name="CameraController" type="Node3D" parent="."]
+script = ExtResource("3_camera")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 600.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 64
+text = "Score: 0"
+
+[node name="MovesLabel" type="Label" parent="UI"]
+offset_left = 40.0
+offset_top = 140.0
+offset_right = 600.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 48
+text = "Moves: 0"
+
+[node name="CubesLabel" type="Label" parent="UI"]
+offset_left = 40.0
+offset_top = 240.0
+offset_right = 750.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 48
+text = "Cubes: 1728"
+
+[node name="PreviewLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 700.0
+offset_right = 450.0
+offset_bottom = 820.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 56
+text = "Cubes: 0 | Points: 0"
+horizontal_alignment = 1
+visible = false
+
+[node name="GameOverPanel" type="Panel" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -450.0
+offset_right = 600.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -300.0
+offset_right = 450.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Game Over!"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Final Score: 0"
+horizontal_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Moves: 0"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Restart"
+
+[node name="HelpLabel" type="Label" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -280.0
+offset_right = 1200.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 42
+text = "Controls:
+• Drag to rotate
+• Hover to preview
+• Click to clear (2+ cubes)
+• Scroll to zoom"
