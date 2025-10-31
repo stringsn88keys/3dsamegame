@@ -12,7 +12,7 @@ A three-dimensional tile-matching puzzle game played on a 12×12×12 cubic grid 
   - Hover to preview clearable groups
   - Click to clear groups (2+ connected cubes)
   - Scroll to zoom
-- **Smart Scoring**: Exponential scoring system `(max(0, n-3))²` that rewards larger clears
+- **Smart Scoring**: Rewards large clears, penalizes small ones - (n - 2)² - 5n formula
 - **Visual Feedback**:
   - Highlight preview of clearable groups
   - Smooth animations for clearing and gravity
