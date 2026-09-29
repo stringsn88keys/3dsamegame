@@ -114,7 +114,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 40.0
-offset_top = -280.0
+offset_top = -560.0
 offset_right = 1200.0
 offset_bottom = -40.0
 grow_vertical = 0
@@ -123,4 +123,8 @@ text = "Controls:
 • Drag to rotate
 • Hover to preview
 • Click to clear (2+ cubes)
-• Scroll to zoom"
+• Scroll to zoom
+
+Scoring: (n - 2)² - 5n for n cubes
+• Under 9 cubes loses points
+• Bigger groups score much more"
