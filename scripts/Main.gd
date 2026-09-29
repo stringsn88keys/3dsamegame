@@ -7,6 +7,7 @@ extends Node3D
 # UI elements
 @onready var score_label = $UI/ScoreLabel
 @onready var moves_label = $UI/MovesLabel
+@onready var time_label = $UI/TimeLabel
 @onready var cubes_label = $UI/CubesLabel
 @onready var preview_label = $UI/PreviewLabel
 @onready var game_over_panel = $UI/GameOverPanel
@@ -21,6 +22,7 @@ func _ready():
 	game_manager.camera_controller = camera_controller
 	game_manager.score_label = score_label
 	game_manager.moves_label = moves_label
+	game_manager.time_label = time_label
 	game_manager.cubes_label = cubes_label
 	game_manager.preview_label = preview_label
 	game_manager.game_over_panel = game_over_panel

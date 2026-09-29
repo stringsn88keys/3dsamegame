@@ -42,6 +42,19 @@ offset_bottom = 220.0
 theme_override_font_sizes/font_size = 48
 text = "Moves: 0"
 
+[node name="TimeLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 120.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 64
+text = "Time: 0:00"
+horizontal_alignment = 2
+
 [node name="CubesLabel" type="Label" parent="UI"]
 offset_left = 40.0
 offset_top = 240.0
@@ -116,6 +129,12 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
 text = "Moves: 0"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="UI/GameOverPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Time: 0:00"
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="UI/GameOverPanel/VBoxContainer"]

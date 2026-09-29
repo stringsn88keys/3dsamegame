@@ -10,6 +10,11 @@ var score: int = 0
 var moves: int = 0
 var is_processing: bool = false
 var hovered_group: Array[Vector3i] = []
+
+# Timer: starts on the first clear, stops at game over
+var elapsed: float = 0.0
+var timer_running: bool = false
+var shown_seconds: int = -1
 var current_hovered_cube: Vector3i = Vector3i(-1, -1, -1)
 
 # Click detection
@@ -22,9 +27,15 @@ var score_label: Label
 var moves_label: Label
 var cubes_label: Label
 var preview_label: Label
+var time_label: Label
 var game_over_panel: Panel
 
-func _process(_delta):
+func _process(delta):
+	# Keep timing through clear/gravity animations too
+	if timer_running:
+		elapsed += delta
+		update_time_label()
+
 	if is_processing or not camera_controller:
 		return
 
@@ -127,6 +138,7 @@ func clear_current_group():
 
 	is_processing = true
 	moves += 1
+	timer_running = true
 
 	if moves_label:
 		moves_label.text = "Moves: %d" % moves
@@ -153,6 +165,7 @@ func _on_gravity_settled():
 
 func _on_game_over():
 	is_processing = true
+	timer_running = false
 	print("Game Over! Final score: %d in %d moves" % [score, moves])
 
 	if game_over_panel:
@@ -167,9 +180,15 @@ func _on_game_over():
 		if final_moves_label:
 			final_moves_label.text = "Moves: %d" % moves
 
+		var final_time_label = game_over_panel.get_node_or_null("VBoxContainer/TimeLabel")
+		if final_time_label:
+			final_time_label.text = "Time: %s" % format_time(elapsed)
+
 func restart_game():
 	score = 0
 	moves = 0
+	elapsed = 0.0
+	timer_running = false
 	is_processing = false
 	hovered_group.clear()
 	current_hovered_cube = Vector3i(-1, -1, -1)
@@ -178,6 +197,7 @@ func restart_game():
 		score_label.text = "Score: 0"
 	if moves_label:
 		moves_label.text = "Moves: 0"
+	update_time_label()
 	if preview_label:
 		preview_label.visible = false
 	if game_over_panel:
@@ -185,6 +205,23 @@ func restart_game():
 
 	grid.initialize_grid()
 	update_cubes_count()
+
+# Redraws the timer only when the displayed second changes
+func update_time_label():
+	var seconds = int(elapsed)
+	if not time_label or seconds == shown_seconds:
+		return
+	shown_seconds = seconds
+	time_label.text = "Time: %s" % format_time(elapsed)
+
+func format_time(t: float) -> String:
+	var total = int(t)
+	var h = total / 3600
+	var m = (total % 3600) / 60
+	var s = total % 60
+	if h > 0:
+		return "%d:%02d:%02d" % [h, m, s]
+	return "%d:%02d" % [m, s]
 
 func update_cubes_count():
 	if grid and cubes_label:
